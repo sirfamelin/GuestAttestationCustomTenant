@@ -1,0 +1,87 @@
+version= 1.0;
+authorizationrules
+{
+    [type=="$bootdebug-enabled", value==false] &&
+    [type=="$hypervisordebug-enabled", value==false] &&
+    [type=="$kerneldebug-enabled", value==false]
+    => add (type="debuggers-enabled", value=false);
+
+    [type=="EV_EFI_Variable_Driver_Config/SHA256/pcr7/8be4df61-93ca-11d2-aa0d-00e098032b8c/PK", value=="827F3AD1828BD20CC03A5624D4CE3F1CF74910715CC764F69800FEFD8F406DC6"] &&
+    [type=="EV_EFI_Variable_Driver_Config/SHA256/pcr7/8be4df61-93ca-11d2-aa0d-00e098032b8c/KEK", value=="63C0EE78EB49B91AC213B03768A827EBF9B12370F65851B19A883BF32EAF2A14"] &&
+    [type=="EV_EFI_Variable_Driver_Config/SHA256/pcr7/d719b2cb-3d3a-4596-a3bc-dad00e67656f/db", value=="557D6499C5B8CF01576C44BEA8B5320D9723DEDEA6883BBD42566DB56CE888FC"] && 
+    [type=="EV_EFI_Variable_Driver_Config/SHA256/pcr7/d719b2cb-3d3a-4596-a3bc-dad00e67656f/dbx", value=="A044B4CE4A4DCA9AF312C897DC56EE1727C385EB88F7CFB9092B8265029D5B1E"]
+    => add (type="windows-securebootkeys-validated", value=true);
+
+    [type=="EV_EFI_Variable_Driver_Config/SHA256/pcr7/8be4df61-93ca-11d2-aa0d-00e098032b8c/PK", value=="827F3AD1828BD20CC03A5624D4CE3F1CF74910715CC764F69800FEFD8F406DC6"] &&
+    [type=="EV_EFI_Variable_Driver_Config/SHA256/pcr7/8be4df61-93ca-11d2-aa0d-00e098032b8c/KEK", value=="63C0EE78EB49B91AC213B03768A827EBF9B12370F65851B19A883BF32EAF2A14"] &&
+    [type=="EV_EFI_Variable_Driver_Config/SHA256/pcr7/d719b2cb-3d3a-4596-a3bc-dad00e67656f/db", value=="F54DBC80B0C8E64CF184A8AD3314295153285B493B921FEB67DE14C6CADD43F4"] && 
+    [type=="EV_EFI_Variable_Driver_Config/SHA256/pcr7/d719b2cb-3d3a-4596-a3bc-dad00e67656f/dbx", value=="4EE879DAB4D6F835A6CADC6BBA242CE00BA6F3D03EB31B5D5635F0CE07381D11"]
+    => add (type="linux-securebootkeys-validated", value=true);
+
+    [type=="$is-windows", value==true] &&
+    [type=="debuggers-enabled", value==false] &&
+    [type=="$testsigning-enabled", value==false] &&
+    [type=="$secureboot", value==false] &&
+    [type=="windows-securebootkeys-validated", value==true] => permit();
+
+    [type=="$is-windows", value==false] &&
+    [type=="EV_EFI_Variable_Authority/SHA256/pcr7/605dab50-e046-4300-abb6-3dd810dd8b23/Shim", value!="70F0DCA0FD93403E2ED2E7106781DB1E002B1CBAE77FF3A2E23CAB46EB6349D2"]
+    => deny();
+
+    [type=="$is-windows", value==false] &&
+    [type=="EV_EFI_Variable_Authority/SHA256/pcr7/605dab50-e046-4300-abb6-3dd810dd8b23/MokList"] => deny();
+
+    [type=="$is-windows", value==false] &&
+    [type=="$secureboot", value==true] &&
+    [type=="linux-securebootkeys-validated", value==true] &&
+    [type=="EV_EFI_Variable_Authority/SHA256/pcr7/605dab50-e046-4300-abb6-3dd810dd8b23/Shim", value=="70F0DCA0FD93403E2ED2E7106781DB1E002B1CBAE77FF3A2E23CAB46EB6349D2"]
+    => permit();
+};
+issuancerules
+{
+    => issue(type = "token-ver", value = "1.0");
+    c:[type=="$attestation-protocol-ver"] => issue(claim=c);
+    c:[type=="$vmid"] => issue(claim=c);
+    c:[type=="$tee"] => issue(claim=c);
+    c:[type=="$nonce"] => issue(claim=c);
+    c:[type=="$encryption-key"] => issue(claim=c);
+    c:[type=="$attested-pcrs"] => issue(claim=c);
+    c:[type=="$nonce"] => issue(claim=c);
+    c:[type=="$ostype"] => issue(claim=c);
+    c:[type=="$osdistro"] => issue(claim=c);
+    c:[type=="$osbuild"] => issue(claim=c);
+    c:[type=="$osversion-major"] => issue(claim=c);
+    c:[type=="$osversion-minor"] => issue(claim=c);
+    c:[type=="$bootdebug-enabled"] => issue(claim=c);
+    c:[type=="$hypervisordebug-enabled"] => issue(claim=c);
+    c:[type=="$kerneldebug-enabled"] => issue(claim=c);
+    c:[type=="$testsigning-enabled"] => issue(claim=c);
+    c:[type=="$flightsigning-enabled"] => issue(claim=c);
+    c:[type=="$elam-enabled"] => issue(claim=c);
+    c:[type=="$codeintegrity"] => issue(claim=c);
+    c:[type=="$secureboot"] => issue(claim=c);
+    c:[type=="$pcr0"] => issue(claim=c);
+    c:[type=="$pcr1"] => issue(claim=c);
+    c:[type=="$pcr2"] => issue(claim=c);
+    c:[type=="$pcr3"] => issue(claim=c);
+    c:[type=="$pcr4"] => issue(claim=c);
+    c:[type=="$pcr5"] => issue(claim=c);
+    c:[type=="$pcr6"] => issue(claim=c);
+    c:[type=="$pcr7"] => issue(claim=c);
+    c:[type=="$pcr8"] => issue(claim=c);
+    c:[type=="$pcr9"] => issue(claim=c);
+    c:[type=="$pcr10"] => issue(claim=c);
+    c:[type=="$pcr11"] => issue(claim=c);
+    c:[type=="$pcr12"] => issue(claim=c);
+    c:[type=="$pcr13"] => issue(claim=c);
+    c:[type=="$pcr14"] => issue(claim=c);
+    c:[type=="$pcr15"] => issue(claim=c);
+    c:[type=="$pcr16"] => issue(claim=c);
+    c:[type=="$pcr17"] => issue(claim=c);
+    c:[type=="$pcr18"] => issue(claim=c);
+    c:[type=="$pcr19"] => issue(claim=c);
+    c:[type=="$pcr20"] => issue(claim=c);
+    c:[type=="$pcr21"] => issue(claim=c);
+    c:[type=="$pcr22"] => issue(claim=c);
+    c:[type=="$pcr23"] => issue(claim=c);
+};

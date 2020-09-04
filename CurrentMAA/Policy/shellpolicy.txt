@@ -1,0 +1,9 @@
+version=1.0;
+authorizationrules{
+    => permit();
+};
+
+issuancerules{
+    c:[type == "aas-ehd", issuer == "CustomClaim"] => issue(claim = c);
+    => issueproperty(type = "omit_x5c", value = true);
+};

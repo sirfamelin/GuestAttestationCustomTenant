@@ -1,0 +1,60 @@
+[28-08-2020 21-20-43Z] Level:Info Tag:AttestatationClient main:167 ********************Starting Attestation Client********************
+[28-08-2020 21-20-43Z] Level:Info Tag:AttestatationClient main:169 Attestation URL:https://testtenant.eus2.attest.azure.net/attest/Tee/AzureGuest?api-version=2018-09-01-preview
+[28-08-2020 21-20-43Z] Level:Info Tag:AttestatationClient main:170 Reporting URL:https://eus2.service.attest.azure.net/ReportHealth?api-version=2020-03-31-preview
+[28-08-2020 21-20-43Z] Level:Info Tag:AttestatationClient main:190 Arm Id:/subscriptions/ef7cd349-dbb4-456a-b121-603c39e09703/resourcegroups/sirlinW2/providers/Microsoft.Compute/virtualMachines/vm1sbOn
+[28-08-2020 21-20-43Z] Level:Info Tag:AttestatationClient main:206 Heartbeat Updated.
+[28-08-2020 21-20-43Z] Level:Info Tag:AttestatationClient Client::AttestAndDecrypt:50 Attempting Attestation:1
+[28-08-2020 21-20-43Z] Level:Info Tag:AttestatationClientLib AttestationClientImpl::GetOSInfo:349 Retrieving OS Info
+[28-08-2020 21-20-44Z] Level:Error Tag:AttestatationClientLib attest::curl::getErrorMessage:190 Failed to parse http response
+[28-08-2020 21-20-44Z] Level:Error Tag:AttestatationClientLib attest::curl::SendRequest:334 Http Request failed with error:401 description:
+[28-08-2020 21-20-44Z] Level:Error Tag:AttestatationClientLib AttestationClientImpl::sendHttpRequest:451 Failed to send http request with error:
+[28-08-2020 21-20-44Z] Level:Error Tag:AttestatationClientLib AttestationClientImpl::sendAttestationRequest:243 Failed to send http request with error:
+[28-08-2020 21-20-44Z] Level:Error Tag:AttestatationClientLib AttestationClientImpl::Attest:100 Failed to send attestation request with error:
+[28-08-2020 21-20-44Z] Level:Error Tag:AttestatationClient Client::AttestAndDecrypt:96 Failed to attest with error:-5 description:
+
+[28-08-2020 21-20-45Z] Level:Info Tag:AttestatationClient SendReport:279 Successfully send http request
+
+[28-08-2020 21-20-45Z] Level:Info Tag:AttestatationClient SendReport:284 Successfully reported VM health
+[28-08-2020 21-22-32Z] Level:Info Tag:AttestatationClient main:167 ********************Starting Attestation Client********************
+[28-08-2020 21-22-32Z] Level:Info Tag:AttestatationClient main:169 Attestation URL:https://testtenant.eus2.attest.azure.net/attest/Tee/AzureGuest?api-version=2018-09-01-preview
+[28-08-2020 21-22-32Z] Level:Info Tag:AttestatationClient main:170 Reporting URL:https://eus2.service.attest.azure.net/ReportHealth?api-version=2020-03-31-preview
+[28-08-2020 21-22-32Z] Level:Info Tag:AttestatationClient main:190 Arm Id:/subscriptions/ef7cd349-dbb4-456a-b121-603c39e09703/resourcegroups/sirlinW2/providers/Microsoft.Compute/virtualMachines/vm1sbOn
+[28-08-2020 21-22-32Z] Level:Info Tag:AttestatationClient main:206 Heartbeat Updated.
+[28-08-2020 21-22-32Z] Level:Info Tag:AttestatationClient Client::AttestAndDecrypt:50 Attempting Attestation:1
+[28-08-2020 21-22-32Z] Level:Info Tag:AttestatationClientLib AttestationClientImpl::GetOSInfo:349 Retrieving OS Info
+[28-08-2020 21-22-33Z] Level:Error Tag:AttestatationClientLib attest::curl::getErrorMessage:190 Failed to parse http response
+[28-08-2020 21-22-33Z] Level:Error Tag:AttestatationClientLib attest::curl::SendRequest:334 Http Request failed with error:401 description:
+[28-08-2020 21-22-33Z] Level:Error Tag:AttestatationClientLib AttestationClientImpl::sendHttpRequest:451 Failed to send http request with error:
+[28-08-2020 21-22-33Z] Level:Error Tag:AttestatationClientLib AttestationClientImpl::sendAttestationRequest:243 Failed to send http request with error:
+[28-08-2020 21-22-33Z] Level:Error Tag:AttestatationClientLib AttestationClientImpl::Attest:100 Failed to send attestation request with error:
+[28-08-2020 21-22-33Z] Level:Error Tag:AttestatationClient Client::AttestAndDecrypt:96 Failed to attest with error:-5 description:
+
+[28-08-2020 21-22-33Z] Level:Info Tag:AttestatationClient SendReport:279 Successfully send http request
+
+[28-08-2020 21-22-33Z] Level:Info Tag:AttestatationClient SendReport:284 Successfully reported VM health
+[28-08-2020 21-38-54Z] Level:Info Tag:AttestatationClient main:167 ********************Starting Attestation Client********************
+[28-08-2020 21-38-54Z] Level:Info Tag:AttestatationClient main:169 Attestation URL:https://testtenant.eus2.attest.azure.net/attest/Tee/AzureGuest?api-version=2018-09-01-preview
+[28-08-2020 21-38-54Z] Level:Info Tag:AttestatationClient main:170 Reporting URL:https://eus2.service.attest.azure.net/ReportHealth?api-version=2020-03-31-preview
+[28-08-2020 21-38-54Z] Level:Info Tag:AttestatationClient main:190 Arm Id:/subscriptions/ef7cd349-dbb4-456a-b121-603c39e09703/resourcegroups/sirlinW2/providers/Microsoft.Compute/virtualMachines/vm1sbOn
+[28-08-2020 21-38-54Z] Level:Info Tag:AttestatationClient main:206 Heartbeat Updated.
+[28-08-2020 21-38-54Z] Level:Info Tag:AttestatationClient Client::AttestAndDecrypt:50 Attempting Attestation:1
+[28-08-2020 21-38-54Z] Level:Info Tag:AttestatationClientLib AttestationClientImpl::GetOSInfo:349 Retrieving OS Info
+[28-08-2020 21-38-55Z] Level:Info Tag:AttestatationClient Client::AttestAndDecrypt:57 Attestation Successfull
+[28-08-2020 21-38-55Z] Level:Info Tag:AttestatationClientLib AttestationClientImpl::Decrypt:169 Successfully Decrypted inner key
+[28-08-2020 21-38-55Z] Level:Info Tag:AttestatationClient Client::AttestAndDecrypt:82 Successfully attested and decrypted response.
+[28-08-2020 21-38-58Z] Level:Info Tag:AttestatationClient SendReport:279 Successfully send http request
+
+[28-08-2020 21-38-58Z] Level:Info Tag:AttestatationClient SendReport:284 Successfully reported VM health
+[28-08-2020 21-44-23Z] Level:Info Tag:AttestatationClient main:167 ********************Starting Attestation Client********************
+[28-08-2020 21-44-23Z] Level:Info Tag:AttestatationClient main:169 Attestation URL:https://testtenant.eus2.attest.azure.net/attest/Tee/AzureGuest?api-version=2018-09-01-preview
+[28-08-2020 21-44-23Z] Level:Info Tag:AttestatationClient main:170 Reporting URL:https://eus2.service.attest.azure.net/ReportHealth?api-version=2020-03-31-preview
+[28-08-2020 21-44-23Z] Level:Info Tag:AttestatationClient main:190 Arm Id:/subscriptions/ef7cd349-dbb4-456a-b121-603c39e09703/resourcegroups/sirlinW2/providers/Microsoft.Compute/virtualMachines/vm1sbOn
+[28-08-2020 21-44-23Z] Level:Info Tag:AttestatationClient main:206 Heartbeat Updated.
+[28-08-2020 21-44-23Z] Level:Info Tag:AttestatationClient Client::AttestAndDecrypt:50 Attempting Attestation:1
+[28-08-2020 21-44-23Z] Level:Info Tag:AttestatationClientLib AttestationClientImpl::GetOSInfo:349 Retrieving OS Info
+[28-08-2020 21-44-24Z] Level:Info Tag:AttestatationClient Client::AttestAndDecrypt:57 Attestation Successfull
+[28-08-2020 21-44-24Z] Level:Info Tag:AttestatationClientLib AttestationClientImpl::Decrypt:169 Successfully Decrypted inner key
+[28-08-2020 21-44-24Z] Level:Info Tag:AttestatationClient Client::AttestAndDecrypt:82 Successfully attested and decrypted response.
+[28-08-2020 21-44-25Z] Level:Info Tag:AttestatationClient SendReport:279 Successfully send http request
+
+[28-08-2020 21-44-25Z] Level:Info Tag:AttestatationClient SendReport:284 Successfully reported VM health

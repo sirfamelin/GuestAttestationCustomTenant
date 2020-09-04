@@ -1,0 +1,284 @@
+PowerShell 7.0.3
+Copyright (c) Microsoft Corporation. All rights reserved.
+
+https://aka.ms/powershell
+Type 'help' to get help.
+
+PS C:\Users\sirlin> az-getvm
+az-getvm: The term 'az-getvm' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+PS C:\Users\sirlin> get-azvm
+
+ResourceGroupName            Name      Location          VmSize  OsType                   NIC ProvisioningState Zone
+-----------------            ----      --------          ------  ------                   --- ----------------- ----
+AZSYSLOCK-VENDOR   psmemory2k2019        eastus   Standard_B2ms Windows     psmemory2k2019694         Succeeded
+BRFON-CI-TEST             CI-Test        eastus Standard_D4s_v3 Windows            ci-test100         Succeeded
+BRFON-CI-TEST              dg-win        eastus Standard_D4s_v3 Windows             dg-win386         Succeeded
+RG_BHPANT         TestRetailBuild       eastus2 Standard_A2m_v2 Windows    testretailbuild784         Succeeded
+BHPANT-RG           IndiaRegionVM    southindia Standard_D4s_v3 Windows      indiaregionvm153         Succeeded
+ATTEST-TEST-ACC          vischavm       westus2  Standard_D2_v2 Windows           vischavm647         Succeeded    2
+AZSYSLOCK-VENDOR     psmemoryfix2       westus2   Standard_B2ms Windows       psmemoryfix2893         Succeeded
+SHADAS-EAST          vm-fromkiran       westus2 Standard_D2s_v3 Windows       vm-fromkiran755         Succeeded
+SHADAS-TEST                testVM       westus2 Standard_D4s_v3   Linux              testvm11         Succeeded         SHADAS-TEST               testVm2       westus2 Standard_D4s_v3   Linux            testvm2243         Succeeded         ASBALIGA-RG        asbaliga-w10-2   eastus2euap Standard_D2s_v3 Windows asbaliga-w10-2myVMNic         Succeeded         ASBALIGA-RG        asbaliga-w2016   eastus2euap Standard_D2s_v3 Windows asbaliga-w2016myVMNic         Succeeded         ASBALIGA-RG        asbaliga-w2019   eastus2euap Standard_D2s_v3 Windows asbaliga-w2019myVMNic         Succeeded         ASBALIGA-RG                   vm1   eastus2euap Standard_D2s_v3 Windows            vm1myVMNic         Succeeded         BHPANT_RG_DEL             eagles1   eastus2euap Standard_D2s_v3 Windows        eagles1myVMNic         Succeeded         BHPANT_RG_DEL2              JDR12   eastus2euap Standard_D2s_v3 Windows          JDR12myVMNic         Succeeded         BRFON-TVM                     tvm   eastus2euap Standard_D2s_v3 Windows            tvmmyVMNic         Succeeded         SFRG                      eagles1   eastus2euap Standard_D2s_v3   Linux        eagles1myVMNic         Succeeded         SFRG2                     eagles1   eastus2euap Standard_D2s_v3   Linux        eagles1myVMNic         Succeeded         SHADAS-CVM             shadas-vm1   eastus2euap Standard_D2s_v3 Windows     shadas-vm1myVMNic         Succeeded         SHADAS-EAGLES              Light1   eastus2euap Standard_D2s_v3 Windows               myVMNic            Failed         SHADAS-EAGLES              Light2   eastus2euap Standard_D2s_v3 Windows               myVMNic         Succeeded         SHADAS-EAGLES                 VM0   eastus2euap Standard_D2s_v3 Windows                vmNic0         Succeeded         TVMTESTSTRESSGA    tvmwin10sbvtpm   eastus2euap Standard_D2s_v3 Windows tvmwin10sbvtpmmyVMNic         Succeeded         TRUSTEDCENTRALRG              vm1 centraluseuap Standard_D2s_v3 Windows               myVMNic         Succeeded                                                                                                                                 PS C:\Users\sirlin> New-AzVM -ResourceGroupName sirlinw1 -Location eastus2euap                                                                                                                                                                  cmdlet New-AzVM at command pipeline position 1                                                                          Supply values for the following parameters:                                                                             Name: sirlinNewAzVM                                                                                                     Credential                                                                                                              User: sirfame                                                                                                           Password for user sirfame: ****************                                                                             
+
+
+ResourceGroupName        : sirlinw1
+Id                       : /subscriptions/ef7cd349-dbb4-456a-b121-603c39e09703/resourceGroups/sirlinw1/providers/Micros
+oft.Compute/virtualMachines/sirlinNewAzVM
+VmId                     : 297c7f99-4c6f-4d14-9f7b-e1321a01fabc
+Name                     : sirlinNewAzVM
+Type                     : Microsoft.Compute/virtualMachines
+Location                 : eastus2euap
+Tags                     :
+{"azsecpack":"nonprod","platformsettings.host_environment.service.platform_optedin_for_rootcerts":"true"}
+HardwareProfile          : {VmSize}
+NetworkProfile           : {NetworkInterfaces}
+OSProfile                : {ComputerName, AdminUsername, WindowsConfiguration, Secrets, AllowExtensionOperations,
+RequireGuestProvisionSignal}
+ProvisioningState        : Succeeded
+StorageProfile           : {ImageReference, OsDisk, DataDisks}
+Identity                 : {PrincipalId, TenantId, Type}
+FullyQualifiedDomainName : sirlinnewazvm-0d64e9.eastus2euap.cloudapp.azure.com
+
+
+PS C:\Users\sirlin> get-azvm -name sirlinnewazvm
+
+ResourceGroupName          Name    Location          VmSize  OsType           NIC ProvisioningState Zone
+-----------------          ----    --------          ------  ------           --- ----------------- ----
+SIRLINW1          sirlinNewAzVM eastus2euap Standard_DS1_v2 Windows sirlinNewAzVM         Succeeded
+
+PS C:\Users\sirlin> $vm = get-azvm -name sirlinnewazvm
+PS C:\Users\sirlin> $vm.generation
+PS C:\Users\sirlin> $vm
+
+ResourceGroupName          Name    Location          VmSize  OsType           NIC ProvisioningState Zone
+-----------------          ----    --------          ------  ------           --- ----------------- ----
+SIRLINW1          sirlinNewAzVM eastus2euap Standard_DS1_v2 Windows sirlinNewAzVM         Succeeded
+
+PS C:\Users\sirlin> $vm.vmsize
+PS C:\Users\sirlin> $vm.size
+PS C:\Users\sirlin> $vm | | Select-Object *
+ParserError:
+Line |
+   1 |  $vm | | Select-Object *
+     |       ~
+     | An empty pipe element is not allowed.
+
+PS C:\Users\sirlin> $vm| Select-Object *
+
+ResourceGroupName        : SIRLINW1
+Id                       : /subscriptions/ef7cd349-dbb4-456a-b121-603c39e09703/resourceGroups/SIRLINW1/providers/Micros
+                           oft.Compute/virtualMachines/sirlinNewAzVM
+VmId                     : 297c7f99-4c6f-4d14-9f7b-e1321a01fabc
+Name                     : sirlinNewAzVM
+Type                     : Microsoft.Compute/virtualMachines
+Location                 : eastus2euap
+LicenseType              :
+Tags                     : {[azsecpack, nonprod],
+                           [platformsettings.host_environment.service.platform_optedin_for_rootcerts, true]}
+AvailabilitySetReference :
+DiagnosticsProfile       :
+Extensions               : {}
+HardwareProfile          : Microsoft.Azure.Management.Compute.Models.HardwareProfile
+InstanceView             :
+NetworkProfile           : Microsoft.Azure.Management.Compute.Models.NetworkProfile
+OSProfile                : Microsoft.Azure.Management.Compute.Models.OSProfile
+BillingProfile           :
+Plan                     :
+ProvisioningState        : Succeeded
+StorageProfile           : Microsoft.Azure.Management.Compute.Models.StorageProfile
+DisplayHint              : Compact
+Identity                 : Microsoft.Azure.Management.Compute.Models.VirtualMachineIdentity
+Zones                    : {}
+FullyQualifiedDomainName :
+AdditionalCapabilities   :
+ProximityPlacementGroup  :
+Host                     :
+VirtualMachineScaleSet   :
+EvictionPolicy           :
+Priority                 :
+RequestId                : fa38ecaf-a6c3-4808-9512-f603b618be3b
+StatusCode               : OK
+
+
+PS C:\Users\sirlin> $vm.osprofile
+
+ComputerName                : sirlinNewAzVM
+AdminUsername               : sirfame
+AdminPassword               :
+CustomData                  :
+WindowsConfiguration        : Microsoft.Azure.Management.Compute.Models.WindowsConfiguration
+LinuxConfiguration          :
+Secrets                     : {}
+AllowExtensionOperations    : True
+RequireGuestProvisionSignal : True
+
+
+PS C:\Users\sirlin> $vm.osprofile.windowsconfiguration
+
+ProvisionVMAgent          : True
+EnableAutomaticUpdates    : True
+TimeZone                  :
+AdditionalUnattendContent :
+WinRM                     :
+
+
+PS C:\Users\sirlin> $vm.hardwareprofile
+
+VmSize
+------
+Standard_DS1_v2
+
+PS C:\Users\sirlin> $vm| Select-Object *
+
+ResourceGroupName        : SIRLINW1
+Id                       : /subscriptions/ef7cd349-dbb4-456a-b121-603c39e09703/resourceGroups/SIRLINW1/providers/Micros
+                           oft.Compute/virtualMachines/sirlinNewAzVM
+VmId                     : 297c7f99-4c6f-4d14-9f7b-e1321a01fabc
+Name                     : sirlinNewAzVM
+Type                     : Microsoft.Compute/virtualMachines
+Location                 : eastus2euap
+LicenseType              :
+Tags                     : {[azsecpack, nonprod],
+                           [platformsettings.host_environment.service.platform_optedin_for_rootcerts, true]}
+AvailabilitySetReference :
+DiagnosticsProfile       :
+Extensions               : {}
+HardwareProfile          : Microsoft.Azure.Management.Compute.Models.HardwareProfile
+InstanceView             :
+NetworkProfile           : Microsoft.Azure.Management.Compute.Models.NetworkProfile
+OSProfile                : Microsoft.Azure.Management.Compute.Models.OSProfile
+BillingProfile           :
+Plan                     :
+ProvisioningState        : Succeeded
+StorageProfile           : Microsoft.Azure.Management.Compute.Models.StorageProfile
+DisplayHint              : Compact
+Identity                 : Microsoft.Azure.Management.Compute.Models.VirtualMachineIdentity
+Zones                    : {}
+FullyQualifiedDomainName :
+AdditionalCapabilities   :
+ProximityPlacementGroup  :
+Host                     :
+VirtualMachineScaleSet   :
+EvictionPolicy           :
+Priority                 :
+RequestId                : fa38ecaf-a6c3-4808-9512-f603b618be3b
+StatusCode               : OK
+
+
+PS C:\Users\sirlin> $vm.diagnosticsprofile
+PS C:\Users\sirlin> $vm -status
+ParserError:
+Line |
+   1 |  $vm -status
+     |      ~~~~~~~
+     | Unexpected token '-status' in expression or statement.
+
+PS C:\Users\sirlin> get-azvm -name sirlinnewazvm -status
+
+ResourceGroupName          Name    Location          VmSize  OsType           NIC Provisioning Zone PowerState Maintena
+                                                                                                               nceAllow
+                                                                                                                     ed
+-----------------          ----    --------          ------  ------           --- ------------ ---- ---------- --------
+SIRLINW1          sirlinNewAzVM eastus2euap Standard_DS1_v2 Windows sirlinNewAzVM    Succeeded      VM running
+
+PS C:\Users\sirlin> get-azvm -name sirlinnewazvm -status | select-object *
+
+PowerState                : VM running
+MaintenanceRedeployStatus :
+ResourceGroupName         : SIRLINW1
+Id                        : /subscriptions/ef7cd349-dbb4-456a-b121-603c39e09703/resourceGroups/SIRLINW1/providers/Micro
+                            soft.Compute/virtualMachines/sirlinNewAzVM
+VmId                      : 297c7f99-4c6f-4d14-9f7b-e1321a01fabc
+Name                      : sirlinNewAzVM
+Type                      : Microsoft.Compute/virtualMachines
+Location                  : eastus2euap
+LicenseType               :
+Tags                      : {[azsecpack, nonprod],
+                            [platformsettings.host_environment.service.platform_optedin_for_rootcerts, true]}
+AvailabilitySetReference  :
+DiagnosticsProfile        :
+Extensions                : {, }
+HardwareProfile           : Microsoft.Azure.Management.Compute.Models.HardwareProfile
+InstanceView              :
+NetworkProfile            : Microsoft.Azure.Management.Compute.Models.NetworkProfile
+OSProfile                 : Microsoft.Azure.Management.Compute.Models.OSProfile
+BillingProfile            :
+Plan                      :
+ProvisioningState         : Succeeded
+StorageProfile            : Microsoft.Azure.Management.Compute.Models.StorageProfile
+DisplayHint               : Compact
+Identity                  : Microsoft.Azure.Management.Compute.Models.VirtualMachineIdentity
+Zones                     :
+FullyQualifiedDomainName  :
+AdditionalCapabilities    :
+ProximityPlacementGroup   :
+Host                      :
+VirtualMachineScaleSet    :
+EvictionPolicy            :
+Priority                  :
+RequestId                 : 1078fe06-d099-4343-93f2-96c1a7706bfe
+StatusCode                : OK
+
+
+PS C:\Users\sirlin> get-azvmbootdiagnosticsdata -name sirlinnewazvm
+
+cmdlet Get-AzVMBootDiagnosticsData at command pipeline position 1
+Supply values for the following parameters:
+(Type !? for Help.)
+ResourceGroupName: sirlinw1
+Windows:
+LocalPath:
+Get-AzVMBootDiagnosticsData: Cannot convert 'System.String' to the type 'System.Management.Automation.SwitchParameter' required by parameter 'Windows'.
+PS C:\Users\sirlin> get-azvmbootdiagnosticsdata -name sirlinnewazvmPS C:\> Get-AzVMBootDiagnosticsData -ResourceGroupName "sirlinw1" -Name "sirlinnewazvm" -Windows -LocalPath "C:\Users\sirlin\Desktop\bootdiag"
+Get-AzVMBootDiagnosticsData: Cannot bind parameter because parameter 'Name' is specified more than once. To provide multiple values to parameters that can accept multiple values, use the array syntax. For example, "-parameter value1,value2,value3".
+PS C:\Users\sirlin> get-azvmbootdiagnosticsdata -resourcegroupname "sirlinw1" -Name "sirlinnewazvm" -Windows -LocalPath "C:\Users\sirlin\Desktop\bootdiag"
+Get-AzVMBootDiagnosticsData: no diagnostic profile enabled
+PS C:\Users\sirlin> $vm
+
+ResourceGroupName          Name    Location          VmSize  OsType           NIC ProvisioningState Zone
+-----------------          ----    --------          ------  ------           --- ----------------- ----
+SIRLINW1          sirlinNewAzVM eastus2euap Standard_DS1_v2 Windows sirlinNewAzVM         Succeeded
+
+PS C:\Users\sirlin> Set-Azvmbootdiagnostics
+Set-Azvmbootdiagnostics: The term 'Set-Azvmbootdiagnostics' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+PS C:\Users\sirlin> Set-Azvmbootdiagnostic
+Set-AzVMBootDiagnostic: Parameter set cannot be resolved using the specified named parameters. One or more parameters issued cannot be used together or an insufficient number of parameters were provided.
+PS C:\Users\sirlin> Set-Azvmbootdiagnostic -vm $vm -enable
+
+cmdlet Set-AzVMBootDiagnostic at command pipeline position 1
+Supply values for the following parameters:
+(Type !? for Help.)
+ResourceGroupName: sirlinw1
+Set-AzVMBootDiagnostic: Storage account name for boot diagnostics is not given.
+PS C:\Users\sirlin> Set-Azvmbootdiagnostic -vm $vm -enable -storageaccountname sirlinw1storage
+
+cmdlet Set-AzVMBootDiagnostic at command pipeline position 1
+Supply values for the following parameters:
+(Type !? for Help.)
+ResourceGroupName: sirlinw1
+Set-AzVMBootDiagnostic: Storage account, sirlinw1storage, is a premium account.  You cannot specify a premium storage account for boot diagnostics
+PS C:\Users\sirlin> Set-Azvmbootdiagnostic -vm $vm -enable -storageaccountname sirlinw1storage
+
+cmdlet Set-AzVMBootDiagnostic at command pipeline position 1
+Supply values for the following parameters:
+(Type !? for Help.)
+ResourceGroupName: sirlinw1
+
+ResourceGroupName          Name    Location          VmSize  OsType           NIC ProvisioningState Zone
+-----------------          ----    --------          ------  ------           --- ----------------- ----
+SIRLINW1          sirlinNewAzVM eastus2euap Standard_DS1_v2 Windows sirlinNewAzVM         Succeeded
+
+PS C:\Users\sirlin> Set-Azvmbootdiagnostic -vm $vm -enable
+
+cmdlet Set-AzVMBootDiagnostic at command pipeline position 1
+Supply values for the following parameters:
+(Type !? for Help.)
+ResourceGroupName:
+PS C:\Users\sirlin> ^C
+PS C:\Users\sirlin> get-azvmbootdiagnosticsdata -resourcegroupname "sirlinw1" -Name "sirlinnewazvm" -Windows -LocalPath "C:\Users\sirlin\Desktop\bootdiag"
+Get-AzVMBootDiagnosticsData: no diagnostic profile enabled
+PS C:\Users\sirlin> get-azvmbootdiagnosticsdata -resourcegroupname "sirlinw1" -Name "sirlinnewazvm" -Windows -LocalPath "C:\Users\sirlin\Desktop\bootdiag"
+Get-AzVMBootDiagnosticsData: no diagnostic profile enabled
+PS C:\Users\sirlin>

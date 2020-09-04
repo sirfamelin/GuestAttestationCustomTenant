@@ -1,0 +1,7 @@
+version=1.0;
+authorizationrules{
+[type=="secureBootEnabled", value==true]=>permit();
+};
+
+issuancerules{
+};
